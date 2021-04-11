@@ -13,6 +13,7 @@ Ash Rafi [180104099]
 
 Software tools:
 JavaFX 
+MySQL
 SceneBuilder by Gluon
 XAMPP by Apache Friends
 

@@ -1,0 +1,63 @@
+.search-box{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.search-button{
+    -fx-background-color: #DADEDE;
+    -fx-background-radius: 30;
+}
+
+.right-bar{
+    -fx-background-color: #7E6BDC;
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
+.chosen-product-card{
+    /*-fx-background-color: #000000;*/
+    -fx-background-radius: 30;
+}
+
+.comboBox{
+    -fx-background-color: rgba(255,255,255,0.3);
+    -fx-background-radius: 30;
+}
+
+.add-btn{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.free-delivery-card{
+    -fx-background-color: #E1B888;
+    -fx-background-radius: 30;
+}
+
+.discount-card {
+     -fx-background-color: #8C99DF;
+    -fx-background-radius: 30;
+}
+.shopping-online-card{
+    -fx-background-color: #BAEAC3;
+    -fx-background-radius: 30;
+}
+
+.product-item{
+    -fx-background-color: #FFFFFF;
+        -fx-background-radius: 30;
+}
+.button:hover{
+    -fx-background-color: #717e91;
+}
+
+.homeBG {
+         -fx-background-color: linear-gradient(to left, #9400d3, #a52a2a);
+        -fx-background-radius: 10px;
+}

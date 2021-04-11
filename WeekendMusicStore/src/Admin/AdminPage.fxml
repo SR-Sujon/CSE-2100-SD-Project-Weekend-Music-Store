@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../weekendmusicstore/adminpage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="weekendmusicstore.AdminPageController">
+   <children>
+      <VBox layoutX="-5.0" layoutY="-1.0" prefHeight="995.0" prefWidth="302.0" style="-fx-background-color: #0f5ba3;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="-1.0">
+         <children>
+            <Pane prefHeight="199.0" prefWidth="311.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/WMS_logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#OpenDashboardTab" prefHeight="65.0" prefWidth="357.0" styleClass="button1" text="Dashboard" textFill="#f2eeee">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnInventory" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#OpenInventoryTab" prefHeight="65.0" prefWidth="357.0" styleClass="button1" text="Inventory" textFill="#f2eeee">
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSales" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#OpenSalesTab" prefHeight="65.0" prefWidth="357.0" styleClass="button1" text="Sales" textFill="#f2eeee">
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnUsers" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#OpenUsersTab" prefHeight="65.0" prefWidth="357.0" styleClass="button1" text="Users" textFill="#f2eeee">
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </Button>
+            <Pane prefHeight="473.0" prefWidth="317.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="signOut" layoutX="81.0" layoutY="438.0" mnemonicParsing="false" onAction="#SwitchScenesSignout" prefHeight="43.0" prefWidth="148.0" styleClass="button1" text="Sign Out" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <TabPane fx:id="tabPaneAdmin" layoutX="296.0" layoutY="20.0" prefHeight="1050.0" prefWidth="1627.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="296.0" AnchorPane.topAnchor="30.0">
+        <tabs>
+          <Tab fx:id="UsersInfoTab" text="Users">
+               <content>
+                  <Pane prefHeight="928.0" prefWidth="1150.0">
+                     <children>
+                        <VBox layoutX="36.0" layoutY="127.0" prefHeight="877.0" prefWidth="1198.0" stylesheets="@../weekendmusicstore/adminpage.css">
+                           <children>
+                              <Pane prefHeight="140.0" prefWidth="1253.0">
+                                 <children>
+                                    <TextField fx:id="searchText" layoutX="-2.0" layoutY="82.0" prefHeight="31.0" prefWidth="487.0" promptText="Search Here" />
+                                    <Button fx:id="searchUser" layoutX="517.0" layoutY="81.0" mnemonicParsing="false" onMouseClicked="#searchUser" prefHeight="31.0" prefWidth="104.0" styleClass="btnOrange" text="Search" textFill="WHITE" />
+                                    <Button fx:id="refreshTable" layoutX="649.0" layoutY="81.0" mnemonicParsing="false" onMouseClicked="#refreshTable" prefHeight="31.0" prefWidth="98.0" styleClass="btnGreen" text="Refresh" textFill="WHITE" />
+                                    <Button fx:id="addUser" layoutX="774.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#addUser" prefHeight="31.0" prefWidth="111.0" styleClass="btnBlue" text="Add" textFill="WHITE" />
+                                    <Button fx:id="deleteUser" layoutX="1060.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#deleteUsersAction" prefHeight="31.0" prefWidth="122.0" styleClass="btnRed" text="Delete" textFill="WHITE" />
+                                    <Button fx:id="updateTableBtn" layoutX="913.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#UpdateTable" prefHeight="31.0" prefWidth="119.0" styleClass="btnViolet" text="Update" textFill="WHITE" />
+                                 </children>
+                              </Pane>
+                              <TableView fx:id="usertable" prefHeight="700.0" prefWidth="1194.0" stylesheets="@../weekendmusicstore/adminpage.css">
+                                <columns>
+                                  <TableColumn fx:id="cusID" prefWidth="136.33334350585938" text="Customer ID" />
+                                  <TableColumn fx:id="userName" prefWidth="265.66668701171875" text="Username" />
+                                    <TableColumn fx:id="email" prefWidth="268.33331298828125" text="Email" />
+                                    <TableColumn fx:id="mobile" prefWidth="268.33331298828125" text="Mobile" />
+                                    <TableColumn fx:id="address" prefWidth="252.0" text="Address" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <Pane layoutX="-6.0" layoutY="29.0" prefHeight="99.0" prefWidth="1630.0" style="-fx-background-color: #848C94;">
+                           <children>
+                              <Label layoutX="117.0" layoutY="2.0" prefHeight="97.0" prefWidth="570.0" text="User's Information" underline="true">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold" size="57.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="17.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/usersIcon3.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+          <Tab fx:id="DashboardTab" text="DashBoard">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="84.0" layoutY="148.0" prefHeight="401.0" prefWidth="1003.0" style="-fx-background-color: #3A5D80; -fx-background-radius: 10;">
+                           <children>
+                              <LineChart fx:id="chartSold" layoutX="13.0" layoutY="16.0" prefHeight="372.0" prefWidth="975.0" style="-fx-background-color: white;" styleClass="line-chart" title="SOLD">
+                                <xAxis>
+                                  <CategoryAxis fx:id="X" prefHeight="44.0" prefWidth="926.0" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="Y" side="LEFT" tickLabelFill="#170202" />
+                                </yAxis>
+                                 <padding>
+                                    <Insets bottom="10.0" />
+                                 </padding>
+                              </LineChart>
+                           </children>
+                        </Pane>
+                        <AnchorPane layoutX="122.0" layoutY="589.0" prefHeight="358.0" prefWidth="942.0">
+                           <children>
+                              <Pane layoutX="51.0" layoutY="43.0" prefHeight="262.0" prefWidth="238.0" style="-fx-background-color: #3A5D80; -fx-background-radius: 10;">
+                                 <children>
+                                    <Label layoutX="62.0" layoutY="6.0" prefHeight="38.0" prefWidth="127.0" text="Customers" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane layoutX="19.0" layoutY="44.0" prefHeight="200.0" prefWidth="200.0" styleClass="dashPaneCustom">
+                                       <children>
+                                          <Label fx:id="lblNoOfCustomers" alignment="CENTER" layoutX="23.0" layoutY="20.0" prefHeight="163.0" prefWidth="155.0" text="No" textFill="#41ab41" wrapText="true">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="95.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="352.0" layoutY="43.0" prefHeight="260.0" prefWidth="259.0" style="-fx-background-color: #3A5D80; -fx-background-radius: 10;">
+                                 <children>
+                                    <Label layoutX="97.0" layoutY="11.0" text="Stock" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane layoutX="18.0" layoutY="43.0" prefHeight="200.0" prefWidth="226.0" styleClass="dashPaneCustom">
+                                       <children>
+                                          <Label layoutX="9.0" layoutY="31.0" prefHeight="36.0" prefWidth="112.0" text="Strings :" textFill="#c44c25">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="10.0" layoutY="72.0" prefHeight="36.0" prefWidth="112.0" text="Keys     :" textFill="#c26727">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="9.0" layoutY="112.0" prefHeight="36.0" prefWidth="148.0" text="Percussion:" textFill="#2550c2">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblStringNo" alignment="CENTER" layoutX="139.0" layoutY="34.0" prefHeight="36.0" prefWidth="68.0" text="S" textFill="#e42a2a">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblKeysNo" alignment="CENTER" layoutX="140.0" layoutY="72.0" prefHeight="36.0" prefWidth="68.0" text="k" textFill="#e3872b">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblPercussionNo" alignment="CENTER" layoutX="141.0" layoutY="112.0" prefHeight="36.0" prefWidth="68.0" text="p" textFill="#2b4ae3">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="11.0" layoutY="154.0" prefHeight="29.0" prefWidth="121.0" text="Total    :" textFill="#8331e8">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblTotalStock" alignment="CENTER" layoutX="139.0" layoutY="154.0" prefHeight="29.0" prefWidth="73.0" text="t" textFill="#8331e8">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="675.0" layoutY="42.0" prefHeight="260.0" prefWidth="226.0" style="-fx-background-color: #3A5D80; -fx-background-radius: 10;">
+                                 <children>
+                                    <Label layoutX="19.0" layoutY="14.0" text="Top Sold Products" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane layoutX="17.0" layoutY="45.0" prefHeight="200.0" prefWidth="192.0" styleClass="dashPaneCustom">
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="4.0" layoutY="30.0" prefHeight="58.0" prefWidth="186.0" text="Cordoba Ukulele" textFill="RED">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="3.0" layoutY="104.0" prefHeight="48.0" prefWidth="186.0" text="Ibanez SR" textFill="#ff8c00">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                        <Pane layoutY="14.0" prefHeight="101.0" prefWidth="1629.0" style="-fx-background-color: #848C94;">
+                           <children>
+                              <Label layoutX="133.0" layoutY="11.0" prefHeight="79.0" prefWidth="345.0" text="Dashboard" underline="true">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold" size="57.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="106.0" fitWidth="98.0" layoutX="14.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/dashboardIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <VBox layoutX="1135.0" layoutY="149.0" prefHeight="795.0" prefWidth="325.0">
+                           <children>
+                              <Pane prefHeight="252.0" prefWidth="325.0" style="-fx-background-color: #3A5D80; -fx-background-radius: 15;">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Pane layoutX="25.0" layoutY="58.0" prefHeight="168.0" prefWidth="273.0" styleClass="dashPaneCustom">
+                                       <children>
+                                          <Label fx:id="lblSalesSum" alignment="CENTER" layoutX="55.0" layoutY="60.0" prefHeight="41.0" prefWidth="176.0" text="Label" textFill="#c42323">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="34.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Label layoutX="30.0" layoutY="19.0" prefHeight="29.0" prefWidth="272.0" text="Sum of Sales (in USD)" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="252.0" prefWidth="325.0" style="-fx-background-color: #3A5D80; -fx-background-radius: 15;">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Pane layoutX="19.0" layoutY="50.0" prefHeight="176.0" prefWidth="287.0" styleClass="dashPaneCustom">
+                                       <children>
+                                          <Label fx:id="lblProductsSold" alignment="CENTER" layoutX="171.0" layoutY="131.0" prefHeight="30.0" prefWidth="104.0" text="t" textFill="#8331e8">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="22.0" layoutY="8.0" prefHeight="36.0" prefWidth="112.0" text="Strings :" textFill="#c44c25">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="25.0" layoutY="49.0" prefHeight="36.0" prefWidth="112.0" text="Keys     :" textFill="#c26727">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="24.0" layoutY="90.0" prefHeight="36.0" prefWidth="148.0" text="Percussion:" textFill="#2550c2">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="25.0" layoutY="131.0" prefHeight="29.0" prefWidth="121.0" text="Total    :" textFill="#8331e8">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblStringSold" alignment="CENTER" layoutX="185.0" layoutY="7.0" prefHeight="36.0" prefWidth="68.0" text="S" textFill="#e42a2a">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblKeysSold" alignment="CENTER" layoutX="186.0" layoutY="49.0" prefHeight="36.0" prefWidth="68.0" text="S" textFill="#e3872b">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblPercussionSold" alignment="CENTER" layoutX="187.0" layoutY="90.0" prefHeight="36.0" prefWidth="68.0" text="S" textFill="#2b4ae3">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Label layoutX="81.0" layoutY="5.0" text="Products Sold" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="262.0" prefHeight="252.0" prefWidth="325.0" style="-fx-background-color: #3A5D80; -fx-background-radius: 15;">
+                                 <children>
+                                    <Pane layoutX="18.0" layoutY="48.0" prefHeight="178.0" prefWidth="291.0" styleClass="dashPaneCustom">
+                                       <children>
+                                          <Label layoutX="122.0" layoutY="26.0" text="2" textFill="#1399cf">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="86.0" />
+                                             </font></Label>
+                                       </children>
+                                    </Pane>
+                                    <Label layoutX="114.0" layoutY="7.0" text="Admins" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="InventoryTab" text="Inventory">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="17.0" layoutY="56.0" prefHeight="946.0" prefWidth="1605.0">
+                           <children>
+                              <Pane fx:id="inventoryPane" layoutX="14.0" layoutY="113.0" prefHeight="736.0" prefWidth="392.0" styleClass="inventoryPane">
+                                 <children>
+                                    <Pane fx:id="infoPanel" layoutY="-4.0" prefHeight="69.0" prefWidth="392.0" styleClass="infoPanel">
+                                       <children>
+                                          <Text fill="WHITE" layoutX="21.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information Panel" wrappingWidth="300.00002521276474">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold Italic" size="33.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </Pane>
+                                    <TextField fx:id="PID" layoutX="31.0" layoutY="110.0" prefHeight="29.0" prefWidth="300.0" promptText="Product ID">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="P_NAME" layoutX="31.0" layoutY="170.0" prefHeight="29.0" prefWidth="300.0" promptText="Product Name">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="UNIT_PRICE" layoutX="32.0" layoutY="464.0" prefHeight="29.0" prefWidth="300.0" promptText="Unit Price">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="QUANTITY" layoutX="32.0" layoutY="392.0" prefHeight="29.0" prefWidth="300.0" promptText="Quantity">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <ChoiceBox fx:id="productCategoriesBox" layoutX="31.0" layoutY="251.0" prefHeight="31.0" prefWidth="300.0" />
+                                    <Label layoutX="31.0" layoutY="213.0" prefHeight="21.0" prefWidth="300.0" text="Product Category" textFill="#d7d7d7">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="addBtnInvent" layoutX="21.0" layoutY="659.0" mnemonicParsing="false" onMouseClicked="#addInventory" prefHeight="31.0" prefWidth="95.0" styleClass="btnOrange" text="Add" textFill="WHITE" />
+                                    <Button fx:id="editBtnInvent" layoutX="139.0" layoutY="658.0" mnemonicParsing="false" onMouseClicked="#editInventory" prefHeight="31.0" prefWidth="109.0" styleClass="btnGreen" text="Update" textFill="WHITE" />
+                                    <Button fx:id="deleteBtnInvent" layoutX="265.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#deleteInventory" prefHeight="31.0" prefWidth="115.0" styleClass="btnRed" text="Delete" textFill="WHITE" />
+                                    <Button fx:id="clearBtnInvent" layoutX="261.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#clearInventory" prefHeight="31.0" prefWidth="117.0" styleClass="button1" text="Clear" textFill="WHITE" />
+                                    <Button fx:id="refreshBtnInvent" layoutX="134.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#refreshInventory" prefHeight="31.0" prefWidth="113.0" styleClass="btnViolet" text="Refresh" textFill="WHITE" />
+                                    <Button fx:id="searchBtnInvent" layoutX="18.0" layoutY="607.0" mnemonicParsing="false" onMouseClicked="#searchInventory" prefHeight="31.0" prefWidth="103.0" styleClass="button1" text="Search" textFill="WHITE" />
+                                    <TextField fx:id="TYPE" layoutX="32.0" layoutY="323.0" prefHeight="29.0" prefWidth="300.0" promptText="Type">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                              <TableView fx:id="inventoryTable" layoutX="421.0" layoutY="111.0" prefHeight="740.0" prefWidth="1170.0">
+                                <columns>
+                                  <TableColumn fx:id="pid" prefWidth="87.0" text="PID" />
+                                  <TableColumn fx:id="p_name" prefWidth="99.0" text="P_Name" />
+                                    <TableColumn fx:id="category" prefWidth="96.0" text="Catergory" />
+                                    <TableColumn fx:id="type" prefWidth="96.0" text="Type" />
+                                    <TableColumn fx:id="quantity" prefWidth="96.0" text="Quantity" />
+                                    <TableColumn fx:id="unit_price" prefWidth="96.0" text="Unit_Price" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <Pane layoutY="14.0" prefHeight="112.0" prefWidth="1627.0" style="-fx-background-color: #848C94;">
+                           <children>
+                              <Label layoutX="122.0" layoutY="8.0" prefHeight="97.0" prefWidth="456.0" text="Inventory Panel" underline="true">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold" size="52.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="92.0" fitWidth="100.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/inventoryIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="SalesTab" text="Sales">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutY="17.0" prefHeight="101.0" prefWidth="1630.0" style="-fx-background-color: #848C94;">
+                           <children>
+                              <Label layoutX="107.0" layoutY="11.0" prefHeight="79.0" prefWidth="513.0" text="Sales Information" underline="true">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold" size="55.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="82.0" fitWidth="86.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/iconSales.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="22.0" layoutY="127.0" prefHeight="96.0" prefWidth="1109.0">
+                           <children>
+                              <TextField fx:id="txtSearchPayment" layoutX="14.0" layoutY="33.0" prefHeight="31.0" prefWidth="444.0" promptText="Search Here" />
+                              <Button fx:id="searchTrxID" layoutX="493.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#searchPayment" prefHeight="31.0" prefWidth="138.0" styleClass="btnOrange" text="Search" textFill="WHITE" />
+                              <Button fx:id="refreshTablePayment" layoutX="662.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#refreshPaymentTableAction" prefHeight="31.0" prefWidth="131.0" styleClass="btnGreen" text="Refresh" textFill="WHITE" />
+                              <Button fx:id="deleteUser1" layoutX="826.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#deleteUsersAction" prefHeight="31.0" prefWidth="122.0" styleClass="btnRed" text="Delete" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="25.0" layoutY="225.0" prefHeight="770.0" prefWidth="1562.0">
+                           <children>
+                              <TableView fx:id="paymentTable" layoutX="14.0" layoutY="14.0" prefHeight="695.0" prefWidth="1532.0">
+                                <columns>
+                                  <TableColumn fx:id="trxID" prefWidth="75.0" text="Trx.ID" />
+                                  <TableColumn fx:id="payPID" prefWidth="75.0" text="PID" />
+                                    <TableColumn fx:id="payPname" prefWidth="168.0" text="Product Name" />
+                                    <TableColumn fx:id="payQuantity" prefWidth="144.0" text="Quantity" />
+                                    <TableColumn fx:id="payUsername" prefWidth="127.0" text="Username" />
+                                    <TableColumn fx:id="payCardHolder" prefWidth="127.0" text="Card Holder" />
+                                    <TableColumn fx:id="payCardNo" prefWidth="124.0" text="Card Number" />
+                                    <TableColumn fx:id="cardExpiryDate" prefWidth="124.0" text="Expiry Date" />
+                                    <TableColumn fx:id="payAmount" prefWidth="124.0" text="Amount" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Pane layoutX="1155.0" layoutY="3.0" prefHeight="76.0" prefWidth="317.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="3.0">
+         <children>
+            <Label fx:id="lblUsername" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="15.0" prefHeight="48.0" prefWidth="197.0" text="username" textAlignment="RIGHT" textFill="#3670ff">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="58.0" fitWidth="112.0" layoutX="212.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/userIcon%20(2).png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="500.0" stylesheets="@../weekendmusicstore/adminpage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.UserEditController">
+   <children>
+      <Pane layoutX="-4.0" layoutY="-4.0" prefHeight="109.0" prefWidth="510.0" style="-fx-background-color: #2A88D8;">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="82.0" prefWidth="305.0" text="User's Details" underline="true">
+               <font>
+                  <Font name="Gill Sans Ultra Bold Condensed" size="45.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="14.0" layoutY="142.0" prefHeight="332.0" prefWidth="474.0">
+         <children>
+            <Label layoutX="23.0" layoutY="37.0" prefHeight="34.0" prefWidth="139.0" text="Username :">
+               <font>
+                  <Font name="Georgia" size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addUsertxtUsername" layoutX="165.0" layoutY="39.0" prefHeight="31.0" prefWidth="273.0" />
+            <Label layoutX="26.0" layoutY="149.0" prefHeight="34.0" prefWidth="139.0" text="Email        :">
+               <font>
+                  <Font name="Georgia" size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addUsertxtEmail" layoutX="165.0" layoutY="151.0" prefHeight="31.0" prefWidth="273.0" />
+            <Label layoutX="24.0" layoutY="269.0" prefHeight="34.0" prefWidth="139.0" text="Address    :">
+               <font>
+                  <Font name="Georgia" size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addUsertxtAddress" alignment="TOP_LEFT" layoutX="165.0" layoutY="269.0" prefHeight="41.0" prefWidth="273.0" />
+            <Label layoutX="25.0" layoutY="96.0" prefHeight="34.0" prefWidth="139.0" text="Password  :">
+               <font>
+                  <Font name="Georgia" size="23.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="addUsertxtPassword" layoutX="165.0" layoutY="96.0" prefHeight="31.0" prefWidth="273.0" />
+            <Label layoutX="20.0" layoutY="-10.0" prefHeight="34.0" prefWidth="139.0" text="ID                :">
+               <font>
+                  <Font name="Georgia" size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userIDtxt" layoutX="165.0" layoutY="-8.0" prefHeight="31.0" prefWidth="273.0" />
+            <TextField fx:id="addUserMobile" layoutX="163.0" layoutY="208.0" prefHeight="31.0" prefWidth="273.0" />
+            <Label layoutX="26.0" layoutY="207.0" prefHeight="34.0" prefWidth="139.0" text="Mobile      :">
+               <font>
+                  <Font name="Georgia" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button fx:id="saveBtn" layoutX="71.0" layoutY="486.0" mnemonicParsing="false" onMouseClicked="#saveUserDetail" prefHeight="58.0" prefWidth="139.0" text="SAVE" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans MT Bold" size="27.0" />
+         </font>
+      </Button>
+      <Button layoutX="279.0" layoutY="486.0" mnemonicParsing="false" onMouseClicked="#clearText" prefHeight="58.0" prefWidth="139.0" text="CLEAR" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans MT Bold" size="26.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

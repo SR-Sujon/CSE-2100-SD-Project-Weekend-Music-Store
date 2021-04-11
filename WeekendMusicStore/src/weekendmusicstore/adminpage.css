@@ -1,0 +1,88 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.button1 {
+    -fx-font-weight: bold;
+    -fx-background-color:  #20385e;
+    
+}
+
+
+
+.btnOrange{
+    -fx-font-weight: bold;
+    -fx-background-color: #F16C31;
+}
+
+.btnGreen{
+    -fx-font-weight: bold;
+    -fx-background-color: #2F6E0F;
+}
+
+.btnBlue{
+    -fx-font-weight: bold;
+    -fx-background-color: #0082bc;
+}
+
+.btnViolet{
+    -fx-font-weight: bold;
+    -fx-background-color: #A011AB;
+}
+
+.btnRed{
+    -fx-font-weight: bold;
+    -fx-background-color: #B73030;
+}
+
+.button:hover{
+    -fx-background-color: #717e91;
+}
+
+.table-view .column-header, .table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color: #205E38
+}
+
+.table-view .column-header .label {
+    -fx-text-fill : white;
+    -fx-font-weight : bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .cell {
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+    -fx-text-fill : #000000;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgb(127,172,255);
+}
+
+.table-row-cell :selected .text{
+    -fx-fill: white;
+}
+
+.line-chart {
+    -fx-background-radius: 10;
+}
+
+.dashPaneCustom {
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+}
+
+.inventoryPane {
+    -fx-background-color: #0082bc;
+    -fx-background-radius: 10;
+}
+
+.infoPanel {
+    -fx-background-color: #559251;
+    -fx-background-radius: 10;
+}
+
+.tab-pane .tab-header-area {
+    visibility: hidden;
+}

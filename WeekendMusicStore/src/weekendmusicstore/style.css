@@ -1,0 +1,35 @@
+.login-bg{
+        -fx-background-color: linear-gradient(to left, #9400d3, #a52a2a);
+    }
+    .btn-login-bg{
+        -fx-background-color: linear-gradient(to left, #9400d3, #a52a2a);
+        -fx-background-radius: 10px;
+    }
+    .lbl-status{
+        -fx-background-color: #B73030;
+        -fx-background-radius: 10px;
+    }
+    .lbl-user{
+        -fx-font: 15px Gills;
+        -fx-alignment: CENTER;
+    }
+    .lbl-user-pass-text{
+        -fx-text-fill: #0082bc;
+    }
+    /*USE TAB PANE AS NAVIGATION BAR*/
+
+    .tab-pane{
+        -fx-tab-max-height: 0px;
+    }
+    .tab-pane .tab-header-area{
+        visibility: hidden;
+    }
+
+    .slidingPane {
+        -fx-background-color: #b6c7db;
+        -fx-background-radius: 10px;
+        -fx-background-opacity: 0.6;
+    }
+    .account-bg{
+        -fx-background-color: linear-gradient(to left,#0082bc,#B73030); 
+    }

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MarketController">
+   <children>
+      <ImageView fitHeight="1089.0" fitWidth="1970.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/patternFinal.png" />
+         </image>
+      </ImageView>
+      <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="810.0" prefWidth="412.0" styleClass="homeBG" stylesheets="@../values/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="191.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/WMS_logo.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="66.0" prefWidth="375.0" stylesheets="@../values/style.css" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField prefHeight="40.0" prefWidth="223.0" promptText="Type here to search" styleClass="transparent" stylesheets="@../values/style.css">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="20.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="81.0" styleClass="search-button" stylesheets="@../values/style.css" text="Search">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="15.0" />
+                           </font></Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </HBox>
+                  <Pane prefHeight="0.0" prefWidth="433.0" VBox.vgrow="ALWAYS" />
+                  <VBox fx:id="chosenProductCard" alignment="CENTER" prefHeight="329.0" prefWidth="335.0" stylesheets="@../values/style.css">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="pidLabel" prefHeight="1.0" prefWidth="0.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="1.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="328.0">
+                           <children>
+                              <Label fx:id="productNameLable" contentDisplay="CENTER" prefHeight="22.0" prefWidth="221.0" text="Peach" textFill="WHITE">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label text="\$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="productPriceLabel" alignment="CENTER" prefHeight="22.0" prefWidth="75.0" text="2.99" textFill="WHITE">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="20.0" top="30.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="30.0" layoutY="40.0" prefHeight="60.0" prefWidth="335.0">
+                           <children>
+                              <Label fx:id="catLabel" alignment="CENTER" prefHeight="22.0" prefWidth="235.0" text="     Something" textFill="WHITE">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="typeLabel" alignment="CENTER" prefHeight="22.0" prefWidth="236.0" text="Smth" textFill="WHITE">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <ImageView fx:id="productImg" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/boombox.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Button fx:id="buyNowButton" mnemonicParsing="false" onAction="#buyNowButtonAction" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../values/style.css" text="BUY NOW!">
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="22.0" />
+                           </font>
+                           <effect>
+                              <DropShadow radius="13.8875" width="36.55" />
+                           </effect>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="chosen-product-card" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </VBox>
+                  <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="signOutButton" layoutX="138.0" layoutY="34.0" mnemonicParsing="false" onAction="#signOutButtonAction" prefHeight="36.0" prefWidth="125.0" styleClass="btn-login-bg" stylesheets="@../weekendmusicstore/style.css" text="SIGN OUT" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow height="30.33" radius="15.442499999999999" width="33.44" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="1080.0" prefWidth="1476.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="1078.0" prefWidth="1508.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="3.0" layoutY="-5.0" prefHeight="109.0" prefWidth="1509.0">
+                           <children>
+                              <Pane prefHeight="109.0" prefWidth="219.0">
+                                 <children>
+                                    <ImageView fitHeight="124.0" fitWidth="168.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/beach_travel.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Label fx:id="lblUserName" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="1052.0" text="User" textFill="#1a56db" underline="true">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold Italic" size="35.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                              </Label>
+                              <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/userIcon%20(2).png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutY="195.0" prefHeight="879.0" prefWidth="1507.0">
+                           <children>
+                              <ScrollPane fx:id="scroll" prefHeight="869.0" prefWidth="1370.0" styleClass="transparent" stylesheets="@../values/style.css">
+                                 <content>
+                                    <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                       </rowConstraints>
+                                       <padding>
+                                          <Insets left="40.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </content>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow choke="0.5" color="#a5d0d9" height="43.64" radius="25.765" width="61.42" />
+                                 </effect>
+                              </ScrollPane>
+                           </children>
+                           <effect>
+                              <DropShadow height="12.06" radius="11.845" spread="0.11" width="37.32" />
+                           </effect>
+                        </HBox>
+                        <HBox layoutY="109.0" prefHeight="77.0" prefWidth="1440.0">
+                           <children>
+                              <Pane prefHeight="72.0" prefWidth="73.0" />
+                              <HBox alignment="CENTER" prefHeight="77.0" prefWidth="216.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="77.0" prefWidth="157.0">
+                                       <children>
+                                          <Label prefHeight="32.0" prefWidth="114.0" text="Free delivery">
+                                             <font>
+                                                <Font name="Cambria Bold" size="18.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.48058252427184467" startY="0.3640776699029126">
+                                                   <stops>
+                                                      <Stop color="#d72727" />
+                                                      <Stop color="#2402ff" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label prefHeight="20.0" prefWidth="97.0" text="over $20 order">
+                                             <font>
+                                                <Font name="Cambria" size="15.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0" startY="0.3640776699029126">
+                                                   <stops>
+                                                      <Stop color="#d72727" />
+                                                      <Stop color="#2402ff" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="49.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/delivery.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </HBox>
+                              <Pane prefHeight="77.0" prefWidth="86.0" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin></Pane>
+                              <HBox alignment="CENTER" prefHeight="77.0" prefWidth="269.0" styleClass="shopping-online-card" stylesheets="@../values/style.css">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="77.0" prefWidth="207.0">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="159.0" text="Customized gear">
+                                             <font>
+                                                <Font name="Cambria Bold" size="18.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.5679611650485437" startY="0.3640776699029126">
+                                                   <stops>
+                                                      <Stop color="#2995d6" />
+                                                      <Stop color="#858585" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label prefHeight="29.0" prefWidth="179.0" text="get your order in same day!" wrapText="true">
+                                             <font>
+                                                <Font name="Cambria" size="15.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.674757281553398" startY="0.18932038834951456">
+                                                   <stops>
+                                                      <Stop color="#663333" />
+                                                      <Stop color="#828282" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/gear.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </HBox>
+                              <Pane prefHeight="72.0" prefWidth="336.0" />
+                              <HBox alignment="CENTER" prefHeight="77.0" prefWidth="218.0" styleClass="discount-card" stylesheets="@../values/style.css">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="214.0">
+                                       <children>
+                                          <Label prefHeight="29.0" prefWidth="114.0" text="60% Discount">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold Italic" size="18.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="0.7912621359223301" endY="1.0" startX="0.5097087378640777" startY="0.3252427184466019">
+                                                   <stops>
+                                                      <Stop color="#d34747" />
+                                                      <Stop color="#2402ff" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label prefHeight="25.0" prefWidth="115.0" text="On First Order">
+                                             <font>
+                                                <Font name="Gill Sans MT Bold" size="15.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0" startX="0.48058252427184467" startY="0.3640776699029126">
+                                                   <stops>
+                                                      <Stop color="#bc4f4f" />
+                                                      <Stop color="#2402ff" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="49.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/discount-2040.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </HBox>
+                              <Pane prefHeight="72.0" prefWidth="6.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

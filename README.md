@@ -1,18 +1,22 @@
 # WeekendMusicStore
-"Weekend Music Store", an E-Commerce Shop
+
+"Weekend Music Store", An E-Commerce Shop
 Software Development-II project, Group-9 (2.1)
+
 CSE 43, Ahsanullah University of Science and Technology
+
 Developed by:
-Saidur Rahman Sujon
-Raiyan Reza
-Asif Hridoy
-Ash Rafi
+Saidur Rahman Sujon [190104049]
+S.M. Raiyan Reza Rabab [190104039]
+Asif Hridoy [190104047]
+Ash Rafi [180104099]
+
 Software tools:
-JavaFX
-MySQL
-CSS
+JavaFX 
 SceneBuilder by Gluon
 XAMPP by Apache Friends
+
+Music: www.bensound.com
 
 !!! INSTRUCTIONS !!!
 1. Import the sql database to mysql
